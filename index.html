@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>holy</title>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <script src="script.js" type="text/javascript" defer></script>
+  </head>
+  <body>
+    <nav>
+      <div class="logo">SAINT</div>
+      <div class="navigation">
+        <a href="#skills">Навыки</a>
+        <a href="#team">Команда</a>
+        <a href="#form-block">Заказать проект</a>
+      </div>
+      <div>бургер</div>
+    </nav>
+    <div class="main">
+      <header>
+        <img src="src/cat.png" alt="" />
+        <div class="tagline">
+          Сайты, которые выделяют вас из толпы и приводят к успеху
+        </div>
+      </header>
+
+      <div class="skills" id="skills">
+        <div class="title">Почему мы?</div>
+        <div class="skills__left-point">
+          <p class="point-title">Опыт и навыки</p>
+          <p class="point-text">
+            Команда программистов обладает высоким уровнем технических знаний и
+            опыта в разработке программного обеспечения
+          </p>
+        </div>
+        <div class="skills__right-point">
+          <p class="point-title">Инновационный подход</p>
+          <p class="point-text">
+            Наша команда способна предложить инновационные решения и
+            использовать современные подходы к разработке программного
+            обеспечения
+          </p>
+        </div>
+        <div class="skills__left-point">
+          <p class="point-title">Качество и исполнение</p>
+          <p class="point-text">
+            Мы обеспечиваем высокое качество кода, строгие стандарты
+            тестирования и соблюдение сроков исполнения проекта
+          </p>
+        </div>
+        <div class="skills__right-point">
+          <p class="point-title">Коммуникация и понимание потребностей</p>
+          <p class="point-text">
+            Мы ориентированы на коммуникацию с заказчиком, понимание его
+            потребностей и готовы предложить решение, соответствующее
+            требованием проекта
+          </p>
+        </div>
+      </div>
+
+      <div class="team" id="team">
+        <div class="title">Наши разработчики</div>
+        <div class="developers">
+          <div class="developer">
+            <img src="src/cat3.jpg" alt="" />
+            <p>
+              Наш разработчик фронтенда имеет опыт работы с основными фронт-энд
+              технологиями, такими как HTML, CSS, JavaScript
+            </p>
+          </div>
+          <div class="developer">
+            <img src="src/cat2.png" alt="" />
+            <p>
+              Тимлид нашей команды способен эффективно управлять командой
+              разработчиков, обеспечивая соблюдение сроков, качество работы и
+              эффективное использование технических ресурсов
+            </p>
+          </div>
+          <div class="developer">
+            <img src="src/cat4.jpg" alt="" />
+            <p>
+              Наш бекэнд разработчик обладает высокими знаниями в области
+              серверной разработки и управлениями базами данных.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-block" id="form-block">
+        <img src="src/cat5.jpg" alt="" />
+        <form action="http://localhost:3000/addForm" method="POST">
+          <div class="title">Давайте обсудим ваш проект!</div>
+          <input
+            type="text"
+            name="name"
+            id="name"
+            class="name"
+            placeholder="Имя"
+            required
+            minlength="3"
+            maxlength="20"
+          />
+          <input
+            type="email"
+            name="email"
+            id="email"
+            class="email"
+            placeholder="Почта"
+            required
+          />
+          <input
+            type="text"
+            name="description"
+            id="description"
+            class="description"
+            placeholder="Описание проекта"
+            required
+            minlength="10"
+            maxlength="300"
+          />
+          <input type="submit" class="submit" />
+        </form>
+      </div>
+
+      <footer>
+        <div>Почта:saint_hepl@mail.ru</div>
+        <div>Тел: + 7 (927) 931-56-99</div>
+      </footer>
+    </div>
+  </body>
+</html>

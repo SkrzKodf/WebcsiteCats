@@ -1,0 +1,27 @@
+.textarea {
+  width: 100%;
+  height: 100%;
+  position: relative;
+
+  textarea {
+    width: 100%;
+    height: 100%;
+    resize: none;
+    padding: 1rem 2rem 1rem 1rem;
+    border: 0.1rem solid var(--gray);
+    outline: none;
+    border-radius: 0.4rem;
+  }
+
+  &__icon {
+    position: absolute;
+    top: 0.5rem;
+    right: 0.5rem;
+    color: var(--dark);
+    cursor: pointer;
+
+    &:hover {
+      color: var(--info);
+    }
+  }
+}

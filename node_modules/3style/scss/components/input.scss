@@ -1,0 +1,58 @@
+.input {
+  display: flex;
+  align-items: center;
+  border-bottom: 0.1rem solid var(--gray);
+  transition: border-bottom 0.3s;
+
+  &:has(input:active) {
+    border-bottom: 0.1rem solid var(--dark);
+  }
+
+  &:has(.file-btn) {
+    padding-bottom: .2rem;
+  }
+
+  input {
+    border: none;
+    width: 100%;
+    padding: 0.5rem 1rem;
+    border-radius: 0.4rem;
+    font-size: 1rem;
+    outline: none;
+    transition: border 0.3s;
+    background-color: #fff;
+  }
+
+  &__icon {
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--dark);
+    cursor: pointer;
+
+    &:hover {
+      color: var(--info);
+    }
+  }
+
+  .file-name {
+    padding-left: 1rem;
+  }
+
+  label {
+    position: relative;
+    display: inline-block;
+  }
+
+  input[type=file] {
+    position: absolute;
+    z-index: -1;
+    opacity: 0;
+    display: block;
+    width: 0;
+    height: 0;
+  }
+}

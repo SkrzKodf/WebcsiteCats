@@ -1,0 +1,57 @@
+@import "root";
+@import "mixins";
+
+.btn, button {
+  border-radius: 0.2rem;
+  padding: 0.5rem 1rem;
+  line-height: 1.5rem;
+  outline: none;
+  font-weight: 600;
+
+  &:has(a) {
+    padding: 0;
+  }
+
+  &:has(.material-symbols-outlined) {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+
+    .material-symbols-outlined {
+      font-size: 1.2rem;
+    }
+  }
+}
+
+.ok {
+  @include color_control(var(--ok));
+}
+
+.info {
+  @include color_control(var(--info));
+}
+
+.bad {
+  @include color_control(var(--bad));
+}
+
+.inv {
+  @include color_control_inverse(white, var(--dark));
+}
+
+.outline {
+  @include color_control_outline(white, var(--dark));
+}
+
+.ok-inv {
+  @include color_control_inverse(var(--ok));
+}
+
+.info-inv {
+  @include color_control_inverse(var(--info));
+}
+
+.bad-inv {
+  @include color_control_inverse(var(--bad));
+}

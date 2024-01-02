@@ -1,0 +1,118 @@
+@mixin unselectable {
+  -moz-user-select: none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+@mixin scrollbars($size, $foreground-color: var(--dark), $background-color: var(--gray)) {
+
+  // для Chrome и Safari
+  &::-webkit-scrollbar {
+    width: $size;
+    height: $size;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: $foreground-color;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: $background-color;
+  }
+
+  // по стандартам (Firefox)
+  scrollbar-color: $foreground-color $background-color;
+}
+
+@mixin color_control($color, $second_color: white) {
+  background-color: var(--gray);
+  color: var(--dark);
+  border: 0.1rem solid var(--gray);
+  transition: background-color 0.3s, color 0.3s, border 0.3s;
+  cursor: pointer;
+
+  * {
+    cursor: pointer;
+  }
+
+  &:hover,
+  &.active {
+    background-color: $color;
+    border: 0.1rem solid $color;
+    color: $second_color;
+  }
+
+  &:active {
+    opacity: 0.9;
+  }
+}
+
+
+@mixin color_control_outline($color, $second_color: white) {
+  background-color: #00000000;
+  color: $color;
+  border: 0.1rem solid $color;
+  transition: background-color 0.3s, color 0.3s, border 0.3s;
+  cursor: pointer;
+
+  * {
+    cursor: pointer;
+  }
+
+  &:hover,
+  &.active {
+    background-color: $color;
+    color: $second_color;
+  }
+
+  &:active {
+    opacity: 0.9;
+  }
+}
+
+@mixin color_control_inverse($color, $second_color: white) {
+  background-color: $color;
+  color: $second_color;
+  border: 0.1rem solid $color;
+  transition: opacity 0.3s, background-color 0.3s, color 0.3s, border 0.3s;
+  cursor: pointer;
+  opacity: 0.8;
+
+  * {
+    cursor: pointer;
+  }
+
+  &:hover,
+  &.active {
+    opacity: 1;
+  }
+
+  &:active {
+    opacity: 0.8;
+  }
+}
+
+@mixin select_sizes ($start, $end) {
+  .select {
+    height: $start;
+
+    &__container {
+      height: $start;
+
+      &:hover {
+        height: $end;
+      }
+
+      &.done {
+        height: $start;
+      }
+    }
+
+    &__item label {
+      height: $start - 2rem;
+    }
+
+  }
+
+}

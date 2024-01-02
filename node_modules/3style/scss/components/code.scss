@@ -1,0 +1,119 @@
+.code {
+  $light_red: hsla(0, 90%, 50%, 0.1);
+  $light_green: hsla(120, 90%, 50%, 0.1);
+  $red: hsla(0, 80%, 70%, 0.6);
+  $green: hsla(120, 60%, 70%, 0.6);
+
+  width: 100%;
+  font-weight: 400;
+  border-spacing: 0 0rem;
+
+  * {
+    font-family: "Source Code Pro", monospace;
+    color: #000;
+  }
+
+  th {
+    background-color: var(--ok);
+    padding: 0.5rem 1rem;
+    color: white;
+    font-size: 0.8rem;
+    font-weight: 400;
+    text-align: start;
+  }
+
+  tbody {
+    border: 0.1rem solid var(--gray);
+    border-bottom-left-radius: 0.4rem;
+    border-bottom-right-radius: 0.4rem;
+  }
+
+  .row {
+    overflow: hidden;
+
+    &.add {
+      background-color: $light_green;
+
+      .row__number:before {
+        content: "+";
+        color: darkgreen;
+      }
+    }
+
+    &.remove {
+      background-color: $light_red;
+
+      .row__number:before {
+        content: "-";
+        color: darkred;
+      }
+    }
+
+    &.add .row__number {
+      background-color: $light_green;
+    }
+
+    &.add .change {
+      background-color: #90ee9096;
+    }
+
+    &.remove .row__number {
+      background-color: $light_red;
+    }
+
+    &.remove .change {
+      background-color: #f0808066;
+    }
+
+    .change {
+      padding: 0rem 0.2rem;
+      border-radius: 0.2rem;
+      line-height: 1rem;
+    }
+
+    &__number {
+      user-select: none;
+      white-space: nowrap;
+      vertical-align: top;
+      text-align: right;
+      width: 1%;
+      min-width: 3rem;
+      font-weight: 300;
+      padding: 0 1rem;
+      line-height: 1.1rem;
+      font-size: 0.8rem;
+      position: relative;
+
+      &:before {
+        font-weight: 500;
+        position: absolute;
+        left: 0.2rem;
+        font-size: 1rem;
+      }
+    }
+
+    &__text {
+      vertical-align: middle;
+      line-height: 1.1rem;
+      padding-left: 1.5rem;
+
+      span {
+        line-height: 1.1rem;
+        font-size: 0.9rem;
+      }
+
+      pre {
+        white-space: pre-wrap;
+        /* Since CSS 2.1 */
+        white-space: -moz-pre-wrap;
+        /* Mozilla, since 1999 */
+        white-space: -pre-wrap;
+        /* Opera 4-6 */
+        white-space: -o-pre-wrap;
+        /* Opera 7 */
+        word-wrap: anywhere;
+        /* Internet Explorer 5.5+ */
+      }
+    }
+  }
+}

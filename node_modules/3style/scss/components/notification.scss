@@ -1,0 +1,70 @@
+@import "mixins";
+
+body>.notification {
+  position: fixed;
+  top: -10rem;
+  left: 50%;
+  transform: translate(-50%, 0);
+  animation: notification 8s forwards;
+  z-index: 10000;
+}
+
+@keyframes notification {
+  0% {
+    top: -10rem;
+  }
+
+  10% {
+    top: 2rem;
+  }
+
+  90% {
+    top: 2rem;
+  }
+
+  100% {
+    top: -10rem;
+  }
+}
+
+.notification {
+  color: white;
+  padding: 1rem;
+  border-radius: 0.4rem;
+  display: flex;
+  align-items: center;
+  position: relative;
+
+  p {
+    word-break: break-word;
+  }
+
+  &__bad {
+    background-color: var(--bad);
+  }
+
+  &__ok {
+    background-color: var(--ok);
+  }
+
+  &__info {
+    background-color: var(--info);
+  }
+
+  &__close {
+    @include color_control(var(--dark));
+    width: 1.6rem;
+    height: 1.6rem;
+    border-radius: 50%;
+    position: absolute;
+    right: -0.8rem;
+    top: -0.8rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    span {
+      font-size: 1rem;
+    }
+  }
+}

@@ -1,0 +1,302 @@
+@mixin navHover (){
+    
+    transition: 0.5s;
+
+    &:hover{
+        font-size: 1.5rem;
+        color: #bf2525;
+    }
+}
+
+@mixin subHover (){
+
+    &:hover{
+        background-color: white;
+        color: #bf2525;
+        cursor: pointer;
+    }
+}
+
+
+* {
+    margin: 0;
+    padding: 0;
+  
+    box-sizing: border-box;
+  
+    font-family: nevduplen;
+    font-weight: 100;
+  
+    overflow-x: hidden;
+  }
+  
+  html {
+    width: 100%;
+    scroll-behavior: smooth;
+    font-size: 1.5vw;
+  }
+  
+  body {
+    width: 100%;
+  }
+  
+  a {
+    text-decoration: none;
+    color: var(--third-color);
+  
+    cursor: pointer;
+  }
+  
+  nav {
+    position: fixed;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  
+    background-color: white;
+    color: #212121;
+  
+    width: 100%;
+    height: 2.9rem;
+  
+    padding: 0 1rem;
+  
+    z-index: 4;
+  }
+  
+  @font-face {
+    font-family: nevduplen;
+    src: url(src/nevd.otf);
+  }
+
+  .logo {
+    font-size: 2rem;
+  }
+  
+  .navigation {
+    display: flex;
+    flex-direction: row;
+    gap: 0 3rem;
+    a{
+        font-size: 1.5rem;
+        @include navHover();
+    }
+  }
+
+  header{
+    padding: 5rem;
+
+    .tagline {
+        font-size: 5rem;
+        color: #212121;
+      
+        width: 40vw;
+      }
+    
+    img{
+        position: absolute;
+        left: 50vw;
+        top: 5vw;
+        width: 40vw;
+    }
+  }
+
+
+  .skills{
+    background-color: #bf2525;
+    color: white;
+    margin-top: 5rem;
+    padding: 2rem;
+
+    .title {
+        text-align: center;
+        font-size: 5rem;
+      }
+
+    &__left-point {
+        width: 40vw;
+        margin-top: 1.5rem;
+    }
+      
+    &__right-point {
+        width: 40vw;
+        margin-top: 1.5rem;
+        margin-left: auto;
+    }
+
+    .point-title {
+        font-size: 3.5rem;
+    }
+      
+    .point-text {
+        font-size: 1.5rem;
+    }
+  }
+    
+  .team {
+    background-color: #212121;
+    color: #bf2525;
+    padding: 2rem;
+
+    .title {
+        text-align: center;
+        font-size: 5rem;
+    }
+      
+    .developers {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        gap: 2rem;
+        flex-wrap: wrap;
+        margin-top: 1.5rem;
+
+        .developer {
+            width: 10rem;
+            text-align: center;
+            font-size: 1.5rem;
+          }
+          
+        img {
+            border-radius: 50%;
+            width: 10rem;
+            margin-bottom: 1rem;
+        }
+    }
+  }
+
+  .form-block {
+    width: 20rem;
+    color: #212121;
+    padding: 2rem;
+
+    img {
+        position: absolute;
+        width: 22vw;
+        left: 70vw;
+    }
+
+    .title {
+        font-size: 2rem;
+        margin-bottom: 1rem;
+        text-align: center;
+    }
+
+
+    form {
+        display: flex;
+        flex-direction: column;
+
+        
+        .name {
+            height: 2rem;
+            margin-bottom: 0.5rem;
+            font-size: 1.5rem;
+            padding: 0 0.5rem;
+        }
+          
+          .email {
+            height: 2rem;
+            margin-bottom: 0.5rem;
+            font-size: 1.5rem;
+            padding: 0 0.5rem;
+        }
+          
+          .description {
+            height: 4rem;
+            margin-bottom: 0.5rem;
+            font-size: 1.5rem;
+            padding: 0 0.5rem;
+        }
+          
+          .submit {
+            height: 2rem;
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            background-color: #212121;
+            color: white;
+            transition: .5s;
+
+            @include subHover();
+        }
+    }
+  }
+
+  footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background-color: #212121;
+    color: white;
+    padding: 1rem;
+  }
+
+  @media (max-width: 1440px) {
+    html {
+      font-size: 24px;
+    }
+  }
+  
+  @media (max-width: 1000px) {
+    html {
+      font-size: 20px;
+    }
+  
+    header {
+      padding: 5rem 2rem;
+
+      img {
+        display: none;
+      }
+
+      .tagline {
+        font-size: 5rem;
+        color: #212121;
+        width: auto;
+      }
+    }
+    
+    
+    .skills__left-point {
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      text-align: center;
+      margin: 0 auto;
+      margin-top: 2rem;
+      width: 70vw;
+    }
+  
+    .skills__right-point {
+      margin-left: 0;
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      text-align: center;
+      margin: 0 auto;
+      margin-top: 2rem;
+      width: 70vw;
+    }
+  }
+  
+  @media (max-width: 800px) {
+    html {
+      font-size: 18px;
+    }
+  
+    .navigation {
+      display: none;
+    }
+  
+    .form-block {
+      display: flex;
+      justify-content: center;
+      width: 100%;
+
+      img {
+        display: none;
+      }
+    }
+  }
+  

@@ -1,0 +1,13 @@
+
+.card {
+  width: fit-content;
+  background-color: white;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  border-radius: 0.5rem;
+  position: relative;
+}

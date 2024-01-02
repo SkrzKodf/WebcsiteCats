@@ -1,0 +1,88 @@
+@import "mixins";
+
+.accardion-item {
+  overflow: hidden;
+
+  &:first-child,
+  &:first-child &__header {
+    border-top-left-radius: 0.4rem;
+    border-top-right-radius: 0.4rem;
+  }
+
+  &:last-child,
+  &:last-child &__header:has(input:not(:checked)),
+  &:last-child &__body {
+    border-bottom-left-radius: 0.4rem;
+    border-bottom-right-radius: 0.4rem;
+  }
+
+  &:last-child &__body {
+    border-bottom: 0.1rem solid var(--gray);
+  }
+
+  &__header {
+    @include color_control(var(--info));
+    border: 0.1rem solid var(--gray);
+    background-color: white;
+    width: 100%;
+    transition: opacity 0.3s, border 0.3s, background-color 0.3s, color 0.3s,
+    border-bottom-left-radius 0.6s, border-bottom-right-radius 0.6s;
+
+    label {
+      padding: 1rem;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-weight: 600;
+    }
+
+    input {
+      display: none;
+    }
+  }
+
+  &__icon {
+    transform: rotate(0deg);
+    transition: transform 0.2s;
+  }
+
+  &__body {
+    @include scrollbars(0rem);
+    border-left: 0.1rem solid var(--gray);
+    border-right: 0.1rem solid var(--gray);
+    background-color: white;
+    overflow: scroll;
+    max-height: 0;
+    padding: 0rem 1rem;
+    width: 100%;
+    transition: max-height 0.4s;
+
+    &>* {
+      width: 100%;
+      margin: 1rem 0rem;
+    }
+
+
+    &:has(table) {
+      padding: 0;
+
+      &>* {
+        margin: 0;
+      }
+    }
+  }
+
+  &__header:has(input:checked) {
+    border: .1rem solid var(--gray);
+  }
+
+  &__header:has(input:checked)+&__body {
+    max-height: 30rem;
+    transition: max-height 1s 0.4s;
+  }
+
+  &__header:has(input:checked) &__icon {
+    transform: rotate(180deg);
+  }
+}

@@ -7,7 +7,6 @@ import { dirname } from 'path';
 import { config } from 'dotenv';
 import process from "process";
 import cookieParser from "cookie-parser";
-import fs from "fs";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -21,6 +20,7 @@ db.loadDatabase();
 
 app.use(express.static(__dirname));
 app.use(express.static(__dirname + '/src'));
+app.use(express.static(__dirname + '/client'));
 app.use(express.static(__dirname + '/admin'));
 app.use(bodyParser.json());
 app.use(cookieParser());
@@ -28,11 +28,11 @@ app.use(cors());
 config();
 
 app.get('/', (req, res) => {
-    res.sendFile(__dirname + '/index.html');
+    res.sendFile(__dirname + '/client/index.html');
 });
 
 app.get('/formDone', (req, res) => {
-    res.sendFile(__dirname + '/index.complete.html');
+    res.sendFile(__dirname + '/client/index.complete.html');
 });
 
 app.get('/adminLogin', (req, res) => {
@@ -48,10 +48,6 @@ app.get('/adminLogin', (req, res) => {
 });
 
 app.get('/adminPanel', urlencodedParser, (req, res) => {
-        if (err) {
-            return res.status(500).send(err);
-        };
-
         if (!req.cookies.token) { res.redirect('/') };
 
         if (String(req.cookies.token) == process.env.TOKEN) {
@@ -63,18 +59,12 @@ app.get('/adminPanel', urlencodedParser, (req, res) => {
 
 
 app.post('/login', urlencodedParser, (req, res) => {
-        if (err) {
-            return res.status(500).send(err);
-        };
-
         if (process.env.ADMINNAME == req.body.username && process.env.PASSWORD == req.body.password) {
             res.cookie('token', JSON.parse(doc).token).redirect('/adminPanel');
         } else {
             res.redirect('/');
         };
 })
-
-
 
 app.get("/getForm", (req, res) => {
     db.find({}, (err, docs) => {
@@ -100,9 +90,6 @@ app.post("/addForm", urlencodedParser, (req, res) => {
 });
 
 app.patch("/patchForm", urlencodedParser, (req, res) => {
-        if (err) {
-            return res.status(500).send(err);
-        };
         if (!req.cookies.token) {
             return res.status(404).send('hohoho, no');
         };
@@ -123,9 +110,6 @@ app.patch("/patchForm", urlencodedParser, (req, res) => {
 });
 
 app.delete("/deleteForm", urlencodedParser, (req, res) => {
-        if (err) {
-            return res.status(500).send(err);
-        };
         if (!req.cookies.token) {
             return res.status(404).send('hohoho, no');
         };
